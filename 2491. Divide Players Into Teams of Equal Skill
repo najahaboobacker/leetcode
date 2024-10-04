@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} skill
+ * @return {number}
+ */
+var dividePlayers = function(skill) {
+    skill.sort((a,b)=>a-b)
+    let sum= skill[0]+skill[skill.length-1],chemistry=0
+    for(i=0;i<skill.length/2;i++) {
+        if(skill[i]+skill[skill.length-i-1]!==sum) {
+            return -1
+        }
+    }
+    for(i=0;i<skill.length/2;i++) {
+        chemistry += skill[i]*skill[skill.length-i-1]
+    }
+    return chemistry
+};
